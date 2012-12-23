@@ -8,4 +8,4 @@ I will continue to update this when I get bored/frustrated with my other project
 You can use the code here for whatever you want, enjoy.
 
 
-# Note, only the code is mine. The game ideas/resources are not.
+# Note, only the code is mine. Most of the game ideas coming from http://inventwithpython.com/pygame/chapters/

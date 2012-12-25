@@ -63,12 +63,11 @@ def main_menu():
     batch = pyglet.graphics.Batch()
 
     # Create widgets.
-    widgets_list = [Widget.Button(SCREEN_W/2-BUTTON_W-5, SCREEN_H/2+30, BUTTON_W, BUTTON_H, RED, BROWN, 'Would You Rather', batch, "os.system('WYR.py')"),
-                    Widget.Button(SCREEN_W/2, SCREEN_H/2+30, BUTTON_W, BUTTON_H, RED, BROWN, 'Simulate', batch, "os.system('Simulate.py')"), 
-                    Widget.Button(SCREEN_W/2+BUTTON_W+5, SCREEN_H/2+30, BUTTON_W, BUTTON_H, RED, BROWN, 'Pong',  batch, "os.system('Pong.py')"), 
-                    Widget.Button(SCREEN_W/2-BUTTON_W-5, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Colors', batch, "os.system('Colors.py')"), 
-                    Widget.Button(SCREEN_W/2, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Game of Fifteen', batch, "os.system('GoF.py')"), 
-                    Widget.Button(SCREEN_W/2+BUTTON_W+5, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Exit', batch, 'pyglet.app.exit()')]
+    widgets_list = [Widget.Button(SCREEN_W/2-BUTTON_W-5, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Would You Rather', batch, "os.system('WYR.py')"),
+                    Widget.Button(SCREEN_W/2, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Simulate', batch, "os.system('Simulate.py')"), 
+                    Widget.Button(SCREEN_W/2+BUTTON_W+5, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Pong',  batch, "os.system('Pong.py')"), 
+                    Widget.Button(SCREEN_W/2-BUTTON_W-5, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, BROWN, 'Game of Fifteen', batch, "os.system('GoF.py')"), 
+                    Widget.Button(SCREEN_W/2+BUTTON_W+5, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, BROWN, 'Exit', batch, 'pyglet.app.exit()')]
                   
     # Create labels.
     pyglet.text.Label('Game Launcher', font_name = 'Arial', font_size = 32, x = SCREEN_W/2, y = SCREEN_H-100, anchor_x = 'center', anchor_y = 'center', batch = batch)

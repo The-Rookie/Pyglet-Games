@@ -53,7 +53,7 @@ MOUSE_LEFT_CLICKED = False
 def main_menu():
     """ Main menu in the game. """
     
-    global batch, menu, widgets_list
+    global batch, menu, widgets_list, focus
         
     # Reset batch for rendering.
     batch = pyglet.graphics.Batch()
@@ -65,7 +65,9 @@ def main_menu():
     widgets_list = [Widget.Button(SCREEN_W/2, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, WHITE, 'Start Game', batch, 'new_question()'), 
                     Widget.Button(SCREEN_W/2, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, WHITE, 'Create Question', batch, 'create_question()'), 
                     Widget.Button(SCREEN_W/2, SCREEN_H/2-63, BUTTON_W, BUTTON_H, RED, WHITE, 'Exit Game', batch, 'pyglet.app.exit()')]
-                  
+    
+    focus = None
+    
     # Create labels.
     pyglet.text.Label('Would You Rather?', font_name = 'Arial', font_size = 32, x = SCREEN_W/2, y = SCREEN_H-100, anchor_x = 'center', anchor_y = 'center', batch = batch)
                     
@@ -73,7 +75,7 @@ def main_menu():
 def new_question():
     """ Creates a new level. """
     
-    global batch, menu, widgets_list
+    global batch, menu, widgets_list, focus
     
     # Reset batch for rendering.
     batch = pyglet.graphics.Batch()
@@ -88,6 +90,8 @@ def new_question():
                     Widget.Button(SCREEN_W/2, SCREEN_H/2-50, len(question[1])*10, BUTTON_H, RED, WHITE, question[1], batch, 'new_question()'),
                     Widget.Button(BUTTON_W/2+4, 17, BUTTON_W, BUTTON_H, RED, WHITE, 'Quit', batch, 'main_menu()'), 
                     Widget.Button(SCREEN_W-BUTTON_W/2-4, 17, BUTTON_W, BUTTON_H, RED, WHITE, 'Skip', batch, 'new_question()')]
+    
+    focus = None
     
     # Create labels.
     pyglet.text.Label('Would You Rather?', font_name = 'Arial', font_size = 32, x = SCREEN_W/2, y = SCREEN_H-75, anchor_x = 'center', anchor_y = 'center', batch = batch)
@@ -160,6 +164,7 @@ def save_question():
     # Reset input widgets.
     focus = widgets_list[0]
     widgets_list[0].document.text = ''
+    widgets_list[0].caret.visible = True
     widgets_list[1].document.text = ''
     widgets_list[1].caret.visible = False
     info.text = 'Question created successfully.'
@@ -189,7 +194,7 @@ def on_mouse_motion(x, y, dx, dy):
 def on_mouse_drag(x, y, dx, dy, buttons, modifiers):
     """ Highlights text in active input box. """
     
-    if focus.collision(x, y):
+    if focus is not None and focus.collision(x, y):
     
         focus.caret.on_mouse_drag(x, y, dx, dy, buttons, modifiers) 
 
@@ -220,17 +225,19 @@ def on_mouse_release(x, y, button, modifiers):
 def on_key_press(symbol, modifiers):
     """ Handles the key presses. """
     
+    global focus 
+    
     if symbol == key.ESCAPE and menu == False:
         
         main_menu()
         return pyglet.event.EVENT_HANDLED
-
+        
         
 @mainWindow.event
 def on_text(text):
     """ Add text to active input box. """
     
-    if len(focus.document.text) < focus.maxlength:
+    if focus is not None and len(focus.document.text) < focus.maxlength:
     
         focus.caret.on_text(text)
                 
@@ -239,7 +246,9 @@ def on_text(text):
 def on_text_motion(motion):
     """ Delete text from active input box. """
     
-    focus.caret.on_text_motion(motion)
+    if focus is not None:
+    
+        focus.caret.on_text_motion(motion)
             
         
 @mainWindow.event

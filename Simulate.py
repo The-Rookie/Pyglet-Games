@@ -150,7 +150,7 @@ def high_scores():
         
         if i <= len(highscores)-1:
         
-            pyglet.text.Label(highscores[i][0]+'   -   '+str(highscores[i][1]), font_name = 'Arial', font_size = 12, x = SCREEN_W/2-45, y = SCREEN_H/2+80-y, 
+            pyglet.text.Label(highscores[i][0]+'   -   '+str(highscores[i][1]), font_name = 'Arial', font_size = 12, x = SCREEN_W/2-80, y = SCREEN_H/2+80-y, 
                               anchor_x = 'left', anchor_y = 'center', batch = batch)
             y += 25
             
@@ -162,7 +162,7 @@ def high_scores():
             
             x = 5
             
-        pyglet.text.Label(str(i+1)+'.', font_name = 'Arial', font_size = 12, x = SCREEN_W/2-60-x, y = SCREEN_H/2+80-(i*25), anchor_x = 'center', anchor_y = 'center', batch = batch)
+        pyglet.text.Label(str(i+1)+'.', font_name = 'Arial', font_size = 12, x = SCREEN_W/2-90-x, y = SCREEN_H/2+80-(i*25), anchor_x = 'center', anchor_y = 'center', batch = batch)
         
     pyglet.text.Label('High Scores', font_name = 'Arial', font_size = 32, x = SCREEN_W/2, y = SCREEN_H-75, anchor_x = 'center', anchor_y = 'center', batch = batch)
     
@@ -229,7 +229,7 @@ def check_pattern(color):
         info.text = 'Save your score below or click restart to start a new game.'
         
         # Create widgets.
-        widgets_list.append(Widget.Input(SCREEN_W/2-(BUTTON_W/2)+4, 32, BUTTON_W, 20, 15, batch))
+        widgets_list.append(Widget.Input(SCREEN_W/2-(BUTTON_W/2)+4, 32, BUTTON_W, 20, 12, batch))
         widgets_list.append(Widget.Button(SCREEN_W/2+4, 17, BUTTON_W, BUTTON_H, RED, WHITE, 'Save Score', batch, "save_high_score()"))
             
             

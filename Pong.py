@@ -248,10 +248,14 @@ def start_game(twoplayers):
     scoreLabel1 = pyglet.text.Label(str(player1.score), font_name = 'Arial', font_size = 42, x = 84, y = SCREEN_H-75, anchor_x = 'center', anchor_y = 'center', batch = batch)
     if MULTIPLAYER == True:
         pyglet.text.Label('Player 2', font_name = 'Arial', font_size = 20, x = SCREEN_W-64, y = SCREEN_H-30, anchor_x = 'center', anchor_y = 'center', batch = batch)
+        info = pyglet.text.Label('Press the Space Bar to start. W/S moves player 1, Arrow keys move player 2.', font_name = 'Arial', font_size = 12, 
+        x = SCREEN_W/2, y = 210, anchor_x = 'center', anchor_y = 'center', batch = batch)
+    
     else:
         pyglet.text.Label('CPU', font_name = 'Arial', font_size = 20, x = SCREEN_W-64, y = SCREEN_H-30, anchor_x = 'center', anchor_y = 'center', batch = batch)
+        info = pyglet.text.Label('Press the Space Bar to start. W/S moves player 1.', font_name = 'Arial', font_size = 12, x = SCREEN_W/2, y = 210, 
+                                 anchor_x = 'center', anchor_y = 'center', batch = batch)
     scoreLabel2 = pyglet.text.Label(str(player2.score), font_name = 'Arial', font_size = 42, x = SCREEN_W-64, y = SCREEN_H-75, anchor_x = 'center', anchor_y = 'center', batch = batch)
-    info = pyglet.text.Label('Press the Space Bar to start.', font_name = 'Arial', font_size = 24, x = SCREEN_W/2, y = 210, anchor_x = 'center', anchor_y = 'center', batch = batch)
     
     # Divider.
     batch.add(2, pyglet.gl.GL_LINES, None, ('v2i', (0, 360, SCREEN_W, 360)))
@@ -305,21 +309,21 @@ def update(dt):
         
         if player1.score == 10:
             
-            info = pyglet.text.Label('Player 1 wins!', font_name = 'Arial', font_size = 24, x = SCREEN_W/2, y = 210, anchor_x = 'center', anchor_y = 'center', batch = batch)
-            info2 = pyglet.text.Label('Press the Space Bar to restart.', font_name = 'Arial', font_size = 24, x = SCREEN_W/2, y = 160, anchor_x = 'center', anchor_y = 'center', batch = batch)
+            info = pyglet.text.Label('Player 1 wins!', font_name = 'Arial', font_size = 12, x = SCREEN_W/2, y = 210, anchor_x = 'center', anchor_y = 'center', batch = batch)
+            info2 = pyglet.text.Label('Press the Space Bar to restart.', font_name = 'Arial', font_size = 12, x = SCREEN_W/2, y = 160, anchor_x = 'center', anchor_y = 'center', batch = batch)
             active = False
             
         elif player2.score == 10:
             
             if MULTIPLAYER == True:
                 
-                info = pyglet.text.Label('Player 2 wins!', font_name = 'Arial', font_size = 24, x = SCREEN_W/2, y = 210, anchor_x = 'center', anchor_y = 'center', batch = batch)
+                info = pyglet.text.Label('Player 2 wins!', font_name = 'Arial', font_size = 12, x = SCREEN_W/2, y = 210, anchor_x = 'center', anchor_y = 'center', batch = batch)
                 
             else:
                 
-                info = pyglet.text.Label('CPU wins!', font_name = 'Arial', font_size = 24, x = SCREEN_W/2, y = 210, anchor_x = 'center', anchor_y = 'center', batch = batch)
+                info = pyglet.text.Label('CPU wins!', font_name = 'Arial', font_size = 12, x = SCREEN_W/2, y = 210, anchor_x = 'center', anchor_y = 'center', batch = batch)
                 
-            info2 = pyglet.text.Label('Press the Space Bar to restart.', font_name = 'Arial', font_size = 24, x = SCREEN_W/2, y = 160, anchor_x = 'center', anchor_y = 'center', batch = batch)
+            info2 = pyglet.text.Label('Press the Space Bar to restart.', font_name = 'Arial', font_size = 12, x = SCREEN_W/2, y = 160, anchor_x = 'center', anchor_y = 'center', batch = batch)
             active = False
               
 

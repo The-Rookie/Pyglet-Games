@@ -67,7 +67,6 @@ def main_menu():
                     Widget.Button(SCREEN_W/2, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Simulate', batch, "os.system('Simulate.py')"), 
                     Widget.Button(SCREEN_W/2+BUTTON_W+5, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Pong',  batch, "os.system('Pong.py')"), 
                     Widget.Button(SCREEN_W/2-BUTTON_W-5, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, BROWN, 'Game of Fifteen', batch, "os.system('GoF.py')"), 
-                    Widget.Button(SCREEN_W/2, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, BROWN, 'Memory', batch, "os.system('Memory.py')"), 
                     Widget.Button(SCREEN_W/2+BUTTON_W+5, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, BROWN, 'Exit', batch, 'pyglet.app.exit()')]
                   
     # Create labels.

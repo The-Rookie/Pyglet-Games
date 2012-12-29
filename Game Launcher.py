@@ -40,7 +40,7 @@ RED = (132, 59, 53, 255)
 BACKGROUND = (0.63, 0.54, 0.41, 1)
 
 # Create window.
-mainWindow = pyglet.window.Window(SCREEN_W, SCREEN_H, vsync = False, caption = "Game Launcher")
+mainWindow = pyglet.window.Window(SCREEN_W, SCREEN_H, caption = "Game Launcher")
 
 # Center window.
 mainWindow.set_location(mainWindow.screen.width/2 - mainWindow.width/2, mainWindow.screen.height/2 - mainWindow.height/2)
@@ -67,6 +67,7 @@ def main_menu():
                     Widget.Button(SCREEN_W/2, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Simulate', batch, "os.system('Simulate.py')"), 
                     Widget.Button(SCREEN_W/2+BUTTON_W+5, SCREEN_H/2-1, BUTTON_W, BUTTON_H, RED, BROWN, 'Pong',  batch, "os.system('Pong.py')"), 
                     Widget.Button(SCREEN_W/2-BUTTON_W-5, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, BROWN, 'Game of Fifteen', batch, "os.system('GoF.py')"), 
+                    Widget.Button(SCREEN_W/2, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, BROWN, 'Memory', batch, "os.system('Memory.py')"), 
                     Widget.Button(SCREEN_W/2+BUTTON_W+5, SCREEN_H/2-32, BUTTON_W, BUTTON_H, RED, BROWN, 'Exit', batch, 'pyglet.app.exit()')]
                   
     # Create labels.

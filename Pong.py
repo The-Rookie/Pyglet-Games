@@ -47,7 +47,7 @@ WHITE = (255, 255, 255, 255)
 BLACK = (0, 0, 0, 255)
 
 # Create window.
-mainWindow = pyglet.window.Window(SCREEN_W, SCREEN_H, vsync = False, caption = "Pong")
+mainWindow = pyglet.window.Window(SCREEN_W, SCREEN_H, caption = "Pong")
 
 # Center window.
 mainWindow.set_location(mainWindow.screen.width/2 - mainWindow.width/2, mainWindow.screen.height/2 - mainWindow.height/2)

@@ -53,7 +53,7 @@ GREEN = (0, 204, 0, 255)
 BACKGROUND = (0.011, 0.211, 0.286, 1)
 
 # Create window.
-mainWindow = pyglet.window.Window(SCREEN_W, SCREEN_H, vsync = False, caption = "Game of Fifteen")
+mainWindow = pyglet.window.Window(SCREEN_W, SCREEN_H, caption = "Game of Fifteen")
 
 # Center window.
 mainWindow.set_location(mainWindow.screen.width/2 - mainWindow.width/2, mainWindow.screen.height/2 - mainWindow.height/2)
